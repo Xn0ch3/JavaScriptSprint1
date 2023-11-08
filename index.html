@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="/assets/images/popcorn.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home Moviestack</title>
+</head>
+
+<body class="bg-black text-white">
+    <header class="bg-white text-black flex content-center items-center justify-between gap-2 h-10 rounded-md">
+        <div class="flex items-center gap-2">
+            <img class="w-6" src="./assets/images/palomitas.png" alt="logo">
+            <h1 class="p-2 bg-black text-white rounded-md">Moviestack</h1>
+        </div>
+        <nav class="flex items-center gap-2  ">
+            <a class="p-2 bg-black text-white rounded-md
+             hover:bg-white hover:text-black  hover:border-black" href="/index.html">Home</a>
+            <a class="p-2 bg-black text-white rounded-md
+              hover:bg-white hover:text-black  hover:border-black" href="./assets/pages/movies.html">Movies</a>
+            <a class="p-2 bg-black text-white rounded-md 
+             hover:bg-white hover:text-black hover:border-black " href="./assets/pages/favs.html">Favs</a>
+        </nav>
+    </header>
+    <main class="flex text-center flex-col items-center">
+        <div id="banner">
+            <img class="object-cover" id="bannerImage" src="https://moviestack.onrender.com/static/y5szbv8zju.jpg"
+                alt="Banner Image">
+            <p id="bannerText">The Nun II</p>
+        </div>
+
+        <p class="text-white text-center w-[80%] p-5">Welcome to the ultimate movie platform! Here, on our new and
+            exciting platform, we offer you a cinematic experience like no other. Looking for the best movies? You've
+            come to the right place! Our selection of movies is carefully curated to satisfy all tastes, from classic
+            cinema lovers to fans of the latest Hollywood productions.
+
+            In our platform, we take pride in offering a wide variety of genres, from exciting action movies to
+            heartwarming dramas and fascinating documentaries. Additionally, we have an extensive collection of
+            high-definition movies for you to enjoy the best visual and sound quality.
+
+            We are committed to providing you with the best entertainment experience, so we have designed an intuitive
+            and user-friendly interface. Navigating our platform is easy and fast, so you can find your favorite movies
+            with ease.
+
+            Not convinced yet? Don't worry! We offer a free trial for you to explore our platform and discover all the
+            exciting movies we have for you. We are sure you will love what you find.
+
+            So, what are you waiting for? Join our community of movie lovers and find out why we are the best movie
+            platform. Start enjoying the best movies right now!
+        </p>
+
+        <div class="flex flex-wrap justify-around w-[80%] p-5">
+            <div class="flex border-2 border-b-slate-950 h-[20rem] w-[25rem] justify-center items-center rounded-[5rem]
+            hover:bg-white">
+                <a class="text-red-700 font-extrabold text-x1" href="./assets/pages/movies.html">
+                    <img class="h-[17rem] w-[17rem] object-cover rounded-[8rem]" src="./assets/images/cta3.jpg"
+                        alt="" /> The Best Horror Movies
+                </a>
+            </div>
+
+            <div class="flex border-2 border-b-slate-950 h-[20rem] w-[25rem] justify-center items-center rounded-[5rem]
+            hover:bg-white ">
+                <a class="text-red-700 font-extrabold text-x1" href="./assets/images/cta2.jpg">
+                    <img class="h-[17rem] w-[17rem] object-cover rounded-[8rem]" src="./assets/images/cta2.jpg"
+                        alt="" /> The Favs Suspense Movies
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white text-black">
+        <p class="p-2 bg-black text-white rounded-md">
+            © 2023 - Home Moviestack - Cohort 52 - Xavier Nochelli
+        </p>
+    </footer>
+    <script src="/assets/js/data.js"></script>
+    <script src="/assets/js/home.js"></script>
+    <script type="module" src="./assets/tailwind.config.js"></script>
+</body>
+
+</html>
