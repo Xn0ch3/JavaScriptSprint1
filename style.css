@@ -44,6 +44,12 @@ main {
 }
 
 
+table, tr, th, td{   
+    border: 5px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
 footer {
     height: 10%;
     display: flex;

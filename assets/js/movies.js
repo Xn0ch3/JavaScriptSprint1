@@ -1,23 +1,43 @@
-
-function cardData(movies) {
-    return `<article class=" flex flex-col  bg-white text-black  items-center border solid  border-white  justify-items-center  h-[22rem] w-[18rem] border-solid-5 p-5 rounded-lg hover:bg-black hover:text-white " >
-    <img class=" h-[10rem] w-[15rem] "  src="${movies.image}" alt="${movies.title}" >
-    <h2 class=" font-extrabold " >${movies.title} </h2>
-    <div class=" text-left >
-    <h3 class=" text-left "  >${movies.tagline}</h3>
-    <p class="line-clamp-5" >${movies.overview}</p>
-    </div>
-    </article>`;
-}
+import {imprimirCard, listaGeneros,opcionesGenero, filtrarGeneroYTitulo , mostrarResultado ,  mostrarMensajeSinResultado} from "./funciones.js";
+import { movies } from "./data.js";
+const moviesContenedor = document.getElementById("cardMoviescontenedor");
 
 
-function imprimirCard(movies, contenedor) {
-    let auxdiv = " ";
-    for (const movie of movies) {
-        const article = cardData(movie);
-        auxdiv += article;
-    }
-    contenedor.innerHTML += auxdiv;
-}
 
-imprimirCard( movies, contenedor )
+
+imprimirCard(movies, moviesContenedor);
+
+
+
+const busquedaGeneros = document.getElementById('generosSelect');
+const searchTitleAndGenre = document.getElementById('generoInput');
+
+
+const todosGeneros = movies.flatMap(movie => movie.genres);
+const generosSet = new Set(todosGeneros);
+let sinRepetirGeneros = Array.from(generosSet).sort();
+
+
+
+opcionesGenero(sinRepetirGeneros, busquedaGeneros, listaGeneros);
+
+
+
+// Evento de cambio en el filtro por género
+busquedaGeneros.addEventListener('change', function () {
+    const titulo = searchTitleAndGenre.value;
+    const genero = busquedaGeneros.value;
+    const filtrado = filtrarGeneroYTitulo(movies, genero, titulo);
+    mostrarResultado(filtrado, moviesContenedor);
+});
+
+// Evento de entrada en el campo de búsqueda por título
+searchTitleAndGenre.addEventListener("input", () => {
+    const titulo = searchTitleAndGenre.value;
+    const genero = busquedaGeneros.value;
+    const filtrado = filtrarGeneroYTitulo(movies, genero, titulo);
+    mostrarResultado(filtrado, moviesContenedor);
+});
+
+mostrarMensajeSinResultado(moviesContenedor)
+
