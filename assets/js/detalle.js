@@ -1,12 +1,11 @@
+import { movies } from "./data.js";
+import { imprimirCard, imprimirmovie } from "./funciones.js";
+
 const search = location.search;
 const params = new URLSearchParams(search);
 const id = params.get('id');
-const moviSelection = movies.find(movies => movies.id == id);
+const movieSelection = movies.find(movie => movie.id == id);
 
 const contenedorDetalles = document.getElementById('contenedorDetalles');
 
-contenedorDetalles.innerHTML = imprimirmovie(moviSelection);
-
-
-// Utiliza un contenedor diferente para la segunda llamada
-
+imprimirCard( [movieSelection] , contenedorDetalles , imprimirmovie )

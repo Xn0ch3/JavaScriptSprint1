@@ -1,12 +1,12 @@
-import {imprimirCard, listaGeneros,opcionesGenero, filtrarGeneroYTitulo , mostrarResultado ,  mostrarMensajeSinResultado} from "./funciones.js";
+import {imprimirCard, listaGeneros,opcionesGenero, filtrarGeneroYTitulo , mostrarResultado ,  mostrarMensajeSinResultado, imprimirmovie, cardData} from "./funciones.js";
 import { movies } from "./data.js";
 const moviesContenedor = document.getElementById("cardMoviescontenedor");
 
 
 
+imprimirCard( movies, moviesContenedor , cardData );
 
-imprimirCard(movies, moviesContenedor);
-
+imprimirmovie(movies , moviesContenedor)
 
 
 const busquedaGeneros = document.getElementById('generosSelect');

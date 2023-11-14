@@ -73,10 +73,10 @@ export function cardData(movie) {
     </article>`;
 }
 
-export function imprimirCard(moviesArray, contenedor) {
+export function imprimirCard(moviesArray, contenedor , fn ) {
     let auxdiv = " ";
     for (const movie of moviesArray) {
-        const article = cardData(movie);
+        const article = fn(movie);
         auxdiv += article;
     }
     contenedor.innerHTML += auxdiv;
