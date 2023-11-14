@@ -73,7 +73,7 @@ export function cardData(movie) {
     </article>`;
 }
 
-export function imprimirCard(moviesArray, contenedor , fn ) {
+export function imprimirCard(moviesArray, contenedor, fn) {
     let auxdiv = " ";
     for (const movie of moviesArray) {
         const article = fn(movie);
@@ -95,17 +95,22 @@ export function opcionesGenero(array, contenedor, funct) {
 }
 
 export function filtrarGeneroYTitulo(moviesArray, genero, titulo) {
-    const filtro = moviesArray.filter(movie =>
-        movie.genres.includes(genero) &&
-        movie.title.toLowerCase().includes(titulo.toLowerCase())
-    );
+    const filtro = moviesArray.filter(movie => {
+        if (genero === 'all') {
+            return movie.title.toLowerCase().includes(titulo.toLowerCase());
+        } else {
+            return movie.genres.includes(genero) &&
+                movie.title.toLowerCase().includes(titulo.toLowerCase());
+        }
+    });
     return filtro;
 }
 
-export function mostrarResultado(resultados , contenedor) {
+
+export function mostrarResultado(resultados, contenedor, fn) {
     contenedor.innerHTML = "";
     if (resultados.length > 0) {
-        imprimirCard(resultados, contenedor);
+        imprimirCard(resultados, contenedor, fn);
     } else {
         mostrarMensajeSinResultado(contenedor);
     }

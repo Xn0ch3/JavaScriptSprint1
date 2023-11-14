@@ -1,4 +1,4 @@
-
+import {movies} from"./data.js" 
 const movieImages = movies.map(movie => movie.image);
 const movieTitles = movies.map(movie => movie.title);
 

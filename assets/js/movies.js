@@ -28,7 +28,7 @@ busquedaGeneros.addEventListener('change', function () {
     const titulo = searchTitleAndGenre.value;
     const genero = busquedaGeneros.value;
     const filtrado = filtrarGeneroYTitulo(movies, genero, titulo);
-    mostrarResultado(filtrado, moviesContenedor);
+    mostrarResultado(filtrado, moviesContenedor , cardData);
 });
 
 // Evento de entrada en el campo de búsqueda por título
@@ -36,7 +36,7 @@ searchTitleAndGenre.addEventListener("input", () => {
     const titulo = searchTitleAndGenre.value;
     const genero = busquedaGeneros.value;
     const filtrado = filtrarGeneroYTitulo(movies, genero, titulo);
-    mostrarResultado(filtrado, moviesContenedor);
+    mostrarResultado(filtrado, moviesContenedor, cardData);
 });
 
 mostrarMensajeSinResultado(moviesContenedor)
