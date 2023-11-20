@@ -56,12 +56,6 @@ export function imprimirmovie(movie) {
 
         <div class="flex flex-wrap justify-between font-semibold w-[80%] " >
             <a class="rounded-md bg-black text-white hover:bg-white hover:text-black p-5 " href="/index.html">Home Moviestack</a>
-
-            <a>
-            <button class="border bg-black text-white rounded-md hover:bg-white hover:text-black p-1 w-[5rem] h-[5rem]" id="imageFavs" onclick="addFavs">
-                <img src="../images/likeOFF.svg" alt="Like">
-            </button>
-            </a>
         
             <a class="rounded-md bg-black text-white hover:bg-white hover:text-black p-5 "  href="/assets/pages/movies.html">Movies</a>
         </div>
@@ -70,18 +64,18 @@ export function imprimirmovie(movie) {
 
 export function cardData(movie) {
     let imageMoviesArray = ` https://moviestack.onrender.com/static/${movie.image} `
-    return `<article class="flex flex-col space-around bg-white text-black items-center border solid border-white justify-items-center h-[26rem] w-[20rem] border-solid-5 p-5 rounded-lg hover:bg-black hover:text-white">
+    return `<article class="flex flex-col space-around bg-white text-black items-center border solid border-white justify-items-center h-[26rem] w-[20rem] border-solid-5 p-5 rounded-lg hover:bg-black hover:text-white"  id="articleId"  >
         <img class="h-[10rem] w-[15rem] rounded-md" src=${imageMoviesArray} alt="${movie.title}">
         <h2 class="font-extrabold">${movie.title}</h2>
         <div class="text-left">
             <h3 class="text-left line-clamp-1">${movie.tagline}</h3>
             <p class="line-clamp-3">${movie.overview}</p>
         </div>
-        <a>
-        <button class="border bg-black text-white rounded-md hover:bg-white hover:text-black p-1 w-[5rem] h-[5rem]" id="imageFavs" onclick="toggleLike(this)">
-            <img src="../images/likeOFF.svg" alt="Like">
+
+        <button class="border bg-black text-white rounded-md hover:bg-white hover:text-black p-1 w-[5rem] h-[5rem]" data-accion="Favs"   data-id="${movie.id}"  >
+            <img data-accion="Favs" data-id="${movie.id}"  id="imageFavs" src="../images/likeOFF.svg" alt="noLike">
         </button>
-        </a>
+
     
         <a class="border bg-black text-white rounded-md hover:bg-white hover:text-black p-1" href="./detalle.html?id=${movie.id}">Movie Details</a>
     </article>`;
@@ -94,7 +88,10 @@ export function imprimirCard(moviesArray, contenedor, fn) {
         auxdiv += article;
     }
     contenedor.innerHTML += auxdiv;
+    console.log(contenedor)
+    console.log(moviesArray)
 }
+
 
 export function listaGeneros(creadorGenero) {
     return `<option class="text-black" value="${creadorGenero}">${creadorGenero}</option>`;

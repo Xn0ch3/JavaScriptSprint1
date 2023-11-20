@@ -7,12 +7,12 @@ const options = {
     }
 }
 let movies
+const moviesContenedor = document.getElementById("cardMoviescontenedor");
 
 fetch(url, options)
     .then(res => res.json())
     .then(data => {
         movies = data.movies
-        const moviesContenedor = document.getElementById("cardMoviescontenedor");
         const busquedaGeneros = document.getElementById('generosSelect');
         const searchTitleAndGenre = document.getElementById('generoInput');
         const todosGeneros = movies.flatMap(movie => movie.genres);
@@ -45,29 +45,29 @@ fetch(url, options)
         }
 
         mostrarMensajeSinResultado(moviesContenedor)
-
-        let idFavoritos = []
-        
-        function agregarFavoritos(id) {
-            // agregamos el id al arreglo de favoritos
-        
-            if (idFavoritos.includes(id)) {
-                // Si el id ya esta dentro del arreglo de id, NO lo agregamos
-                return;
-            }
-        
-            idFavoritos.push(id);
-        
-            // aca convertimos el arreglo en string
-            let arrayFavoritosString = JSON.stringify(idFavoritos);
-        
-            // Save the JSON string in localStorage with a specific key (e.g., "favoritos")
-            localStorage.setItem('favoritos', arrayFavoritosString);
-        
-            let mostrar = localStorage.getItem('favoritos');
-        }
-
-        
     })
     .catch(err => console.log('Error al traer los datos de la API', err))
+
+
+let favoritos = []
+
+moviesContenedor.addEventListener('click', (event) => {
+    const dataset = event.target.dataset.id
+    console.log(dataset)
+
+    if (dataset) {
+        if (!favoritos.includes(dataset)) {
+            favoritos.push(dataset)
+            localStorage.setItem('favoritos', JSON.stringify(favoritos))
+        } else {
+            favoritos = favoritos.splice(favoritos.indexOf(dataset), 1)
+        }
+    }
+    console.log(favoritos)
+})
+
+
+
+
+
 
