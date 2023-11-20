@@ -25,13 +25,13 @@
             <img class="object-cover" id="bannerImage" src="https://moviestack.onrender.com/static/y5szbv8zju.jpg" alt="Banner Image">
             <p id="bannerText">The Nun II</p>
         </div>
-        <div class=" flex flex-wrap  align-middle text-center  justify-center  gap-3  " id="contenedorFiltroBusqueda">
-            <label for="generosSelect">Genre Movie:</label>
-            <select class="text-black" name="generosSelect" id="generosSelect">
-                <option   value="all">All</option>
+        <div class=" flex flex-wrap w-[100%] justify-center items-baseline  align-baseline text-center  border-white gap-5 p-10 " id="contenedorFiltroBusqueda">
+            <label class=" h-10  justify-center align-baseline text-center  items-baseline rounded-md "  for="generosSelect">Genre Movie:</label>
+            <select class="text-black  h-10  " name="generosSelect" id="generosSelect">
+                <option class=" rounded-lg"   value="all">All</option>
             </select>
-            <label for="generoInput">Name Movie:</label>
-            <input class="text-black" type="text" placeholder="Name Title" name="generoInput" id="generoInput">
+            <label class=" h-10  justify-center align-baseline text-center  items-baseline rounded-md " for="generoInput">Name Movie:</label>
+            <input class="text-black h-10 rounded-lg " type="text" placeholder="Name Title" name="generoInput" id="generoInput">
         </div>
         <div id="cardMoviescontenedor" class="flex flex-wrap content-center justify-center items-center gap-5 p-5"></div>
     </main>
@@ -41,6 +41,8 @@
         </div>
     </footer>
     <script type="module" src="../tailwind.config.js"></script>
+    <script type="module" src="../js/favs.js"></script>
+    <script type="module" src="../js/funciones.js"></script>
     <script type="module" src="../js/movies.js"></script>
 </body>
 </html>
